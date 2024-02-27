@@ -61,10 +61,46 @@ public class MenuHelper {
         
     }
 
+    public void printMenu(String targetMenuName) {
+        if (!this.MenuNames.contains(targetMenuName)){
+            System.out.println("Warning: " + targetMenuName + " Does not exist in the list of Menu Names");
+        } else {
+            ArrayList<String> currentPrompts = this.MenuPrompts.get(targetMenuName);
+            HashMap<String, Integer> currentChoices = this.MenuChoices.get(targetMenuName);
 
-    
+            for (String prompt : currentPrompts) {
+                System.out.println(prompt);
+            }
 
-    
+            HashMap<Integer, String> reverseChoices = new HashMap<>();
+            for (Map.Entry<String, Integer> entry : currentChoices.entrySet()) {
+                reverseChoices.put(entry.getValue(), entry.getKey());
+            }
 
-    
+            for (Map.Entry<Integer, String> entry : reverseChoices.entrySet() ) {
+                System.out.printf("[%d] - %s", entry.getKey(), entry.getValue());
+                System.out.println();
+            }
+        }
+    }
+
+    public int pollMenu(String targetMenuName, int targetAnswer) {
+        if (!this.MenuNames.contains(targetMenuName)) {
+            return -1;
+        }
+
+        HashMap<String, Integer> currentChoices = this.MenuChoices.get(targetMenuName);
+        HashMap<Integer, String> reverseChoices = new HashMap<>();
+
+        for (Map.Entry<String, Integer> entry : currentChoices.entrySet()) {
+            reverseChoices.put(entry.getValue(), entry.getKey());
+        }
+
+        if (!reverseChoices.containsKey(targetAnswer)) {
+            return -1;
+        }
+
+        return targetAnswer;
+    }
+
 }

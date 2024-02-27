@@ -9,6 +9,12 @@ public class Event {
         this.Location = "";
     }
 
+    public Event(int numAttendees, String eventName, String eventLocation) {
+        this.Attendees = numAttendees;
+        this.Name = eventName;
+        this.Location = eventLocation;
+    }
+
     public void setEventName(String eventName) {
         this.Name = eventName;
     }
@@ -35,6 +41,10 @@ public class Event {
 
     public Event getEvent(){
         return this;
+    }
+
+    public String toString(){
+        return this.Name + " @ " + this.Location + " | " + this.Attendees;
     }
 
 }

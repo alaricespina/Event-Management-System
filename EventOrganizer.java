@@ -198,12 +198,17 @@ public class EventOrganizer {
         System.out.println(resKs);
         
         System.out.println("Single Occurrence Event Schedule:");
-        ArrayList<SimpleCalendar> sosKs = new ArrayList<>(SingleEventStorage.keySet());
+        ArrayList<SimpleCalendar> sesKs = new ArrayList<>(SingleEventStorage.keySet());
 
-        Collections.sort(sosKs);
-        System.out.println(sosKs);
+        Collections.sort(sesKs);
+        System.out.println(sesKs);
 
-        System.out.println("View Event Details on specific date?");
+        int continueViewing = expectInt(new String[] {"View Schedule of specific dates?", "[0] - No", "[1] - Yes"}, null, 0, 1);
+
+        if (continueViewing == 1)
+        for (SimpleCalendar sc : resKs) {
+            System.out.println(sc);
+        }
     }
 
     public static void modifyEvent() {

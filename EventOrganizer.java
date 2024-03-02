@@ -191,10 +191,6 @@ public class EventOrganizer {
         System.out.println(SingleEventStorage);
     }
 
-    public static void editEvent() {
-
-    }
-
     public static void viewSchedule() {
         System.out.println("Recurring Event Schedule:");
         ArrayList<SimpleCalendar> resKs = new ArrayList<>(RecurringEventStorage.keySet());
@@ -357,6 +353,84 @@ public class EventOrganizer {
     }
 
     public static void modifyEvent() {
+        // 0 - None, 1 - Name, 2 - Location, 3 - Attendees, 4 - Year, 5 - Month, 6 - Date
+        SearchFilter currentFilter = new SearchFilter();
+        boolean loopFlag = true;
+        while (loopFlag) {
+            int possibleFilter = expectInt(
+            new String[] {
+                "Select possible event information that you have", 
+                "[1] - Name", 
+                "[2] - Location",
+                "[3] - Attendees", 
+                "[4] - Year",
+                "[5] - Month", 
+                "[6] - Date",
+                "[0] - None"
+            }, 
+            null, 
+            0, 
+            1);
+
+            switch (possibleFilter) {
+                case 0:
+                    if (currentFilter.isEmpty()) {
+                        System.out.println("No possible search filter, therefore cannot modify an event");
+                        loopFlag = false;
+                    }
+                    break;
+                case 1:
+                    System.out.println("Current Set Name:" + currentFilter.Name);
+                    System.out.println("Enter the possible Name of the event:");
+                    currentFilter.Name = scan.nextLine();
+                    break;
+                case 2:
+                    System.out.println("Current Set Location:" + currentFilter.Location);
+                    System.out.println("Enter the possible Location of the event:");
+                    currentFilter.Location = scan.nextLine();
+                    break;
+                case 3:
+                    System.out.println("Current Set Attendees: " + currentFilter.Attendees);
+                    System.out.println("Enter the possible number of Attendees of the event:");
+                    currentFilter.Attendees = scan.nextInt();
+                    break;
+                case 4:
+                    System.out.println("Current Set Year: " + currentFilter.Year);
+                    System.out.println("Enter the possible Year of the event:");
+                    currentFilter.Year = scan.nextInt();
+                    break;
+                case 5:
+                    System.out.println("Current Set Month: " + currentFilter.Month);
+                    System.out.println("Enter the possible Month of the event:");
+                    currentFilter.Month = scan.nextInt();
+                    break;
+                case 6:
+                    System.out.println("Current Set Date: " + currentFilter.Date);
+                    System.out.println("Enter the possible Date of the event:");
+                    currentFilter.Date = scan.nextInt();
+                    break;
+            }
+
+            // Search in Recurring
+
+            
+
+
+
+            // Search in Single
+            
+
+        }
+
         
+        
+
+
+
+        
+
+
+        
+
     }
 }

@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 246 96 229;
+    --primary-dark: 247 94 202;
+    --primary-light: 129 140 248;
+    --secondary: 16 185 129;
+    --secondary-dark: 5 150 105;
+    --text: 31 41 55;
+    --text-light: 107 114 128;
+    --background: 255 255 255;
+    --background-light: 249 250 251;
+    --background-dark: 243 244 246;
+    --border: 229 231 235;
+    --border-dark: 209 213 219;
+    --danger: 239 68 68;
+    --success: 16 185 129;
+    --warning: 245 158 11;
+    --info: 59 130 246;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full max-w-7xl mx-auto px-4;
+  }
+
+  .btn-primary {
+    @apply inline-block px-6 py-3 bg-primary text-white font-medium rounded transition-all;
+  }
+
+  .btn-secondary {
+    @apply inline-block px-6 py-3 bg-secondary text-white font-medium rounded transition-all;
+  }
+
+  .btn-outline {
+    @apply inline-block px-6 py-3 bg-transparent text-primary border border-primary font-medium rounded transition-all hover:text-white;
+  }
+
+  .btn-block {
+    @apply block w-full;
+  }
+
+  .page-header {
+    @apply bg-primary text-white py-12 text-center;
+  }
+
+  .event-card {
+    @apply bg-white rounded-lg overflow-hidden shadow transition-all hover:-translate-y-1 hover:shadow-md;
+  }
+
+  .event-date {
+    @apply absolute top-4 left-4 bg-primary text-white p-2 rounded text-center min-w-[60px];
+  }
+
+  .event-date .day {
+    @apply block text-xl font-bold leading-none;
+  }
+
+  .event-date .month {
+    @apply block text-sm uppercase;
+  }
+
+  .form-group {
+    @apply mb-6;
+  }
+
+  .form-group label {
+    @apply block mb-2 font-medium;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    @apply w-full p-3 border border-border rounded text-base bg-white;
+  }
+
+  .form-header {
+    @apply mb-6 pb-3 border-b border-border;
+  }
+
+  .tab {
+    @apply px-6 py-4 cursor-pointer font-medium border-b-2 border-transparent;
+  }
+
+  .tab.active {
+    @apply text-primary border-primary;
+  }
+}

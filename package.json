@@ -1,5 +1,6 @@
 {
   "devDependencies": {
-    "daisyui": "^5.0.16"
+    "daisyui": "^5.0.16",
+    "turbo": "^2.5.0"
   }
 }
